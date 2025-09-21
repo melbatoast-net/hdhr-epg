@@ -31,4 +31,5 @@ Instructions:&#xD;
   <Config Name="Output Path" Target="/data" Default="/mnt/user/appdata/hdhr-epg/" Mode="rw" Description="This is where the generated guide.xml file will be stored." Type="Path" Display="always" Required="true" Mask="false"/>
   <Config Name="HDHomeRun IP" Target="HDHOMERUN_IP" Default="" Mode="" Description="The IP address of your HDHomeRun device on your local network." Type="Variable" Display="always" Required="true" Mask="false"/>
   <Config Name="Cron Schedule" Target="CRON_SCHEDULE" Default="0 0 * * *" Mode="" Description="The cron schedule for running the script. Default is daily at midnight." Type="Variable" Display="always" Required="false" Mask="false"/>
+
 </Container>
