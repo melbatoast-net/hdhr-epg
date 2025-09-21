@@ -26,7 +26,9 @@ ENV HDHOMERUN_IP="CHANGEME"
 ENV OUTPUT_FILE="/data/guide.xml"
 
 # Create the log file and the data directory for the output
-RUN mkdir -p /data && mkdir -p /data/log && touch /data/log/cron.log && mkdir -p /data
+RUN mkdir -p /var/log && touch /var/log/cron.log && mkdir -p /data
+# Create the log file and the data directory for the output
+#RUN touch /var/log/cron.log && mkdir -p /data
 
 # Set the entrypoint to our custom script
 ENTRYPOINT ["/entrypoint.sh"]

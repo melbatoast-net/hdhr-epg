@@ -1,7 +1,8 @@
-#!/bin/bash
+#!/bin/sh
 
 echo "---"
 echo "Cron job started: $(date)"
+#source /app/environment.sh
 
 # Validate that the HDHOMERUN_IP has been set by the user
 if [ "${HDHOMERUN_IP}" = "CHANGEME" ] || [ -z "${HDHOMERUN_IP}" ]; then
@@ -13,8 +14,8 @@ fi
 mkdir -p "$(dirname "${OUTPUT_FILE}")"
 
 # Execute the python script with the required arguments
-echo "Executing: python3 /app/HDHomeRunEPGtoXMLTV.py ${HDHOMERUN_IP} ${OUTPUT_FILE}"
-python3 /app/HDHomeRunEPGtoXMLTV.py "${HDHOMERUN_IP}" "${OUTPUT_FILE}"
+echo "Executing: /usr/local/bin/python3 /app/HDHomeRunEPG_To_XmlTv.py --host ${HDHOMERUN_IP} --filename ${OUTPUT_FILE}"
+/usr/local/bin/python3 /app/HDHomeRunEPG_To_XmlTv.py --host "${HDHOMERUN_IP}" --filename "${OUTPUT_FILE}"
 echo "Execution finished with exit code $?"
 echo "Cron job finished: $(date)"
 echo "---"
