@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>HDHomeRun-EPG</Name>
+  <Repository>your-docker-user/hdhr-epg:latest</Repository>
+  <Registry>https://hub.docker.com/r/melbatoast-net/hdhr-epg</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/melbatoast-net/hdhr-epg/</Support>
+  <Project>https://github.com/IncubusVictim/HDHomeRunEPG-to-XmlTv</Project>
+  <Overview>This container periodically runs the HDHomeRunEPG-to-XmlTv Python script to generate an XMLTV guide file from an HDHomeRun tuner.&#xD;
+&#xD;
+Instructions:&#xD;
+1. Build the Dockerfile provided in the support thread.&#xD;
+2. Push the built image to your Docker repository.&#xD;
+3. Update the 'Repository' field in this template to match your image.&#xD;
+4. Set your HDHomeRun's IP address.&#xD;
+5. Configure the output path for the generated guide.xml file.</Overview>
+  <Category>MediaApp:Tools</Category>
+  <WebUI/>
+  <TemplateURL/>
+  <Icon>https://raw.githubusercontent.com/melbatoast-net/hdhr-epg/master/logo-epg-xml.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1630000000</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="Output Path" Target="/data" Default="/mnt/user/appdata/hdhr-epg/" Mode="rw" Description="This is where the generated guide.xml file will be stored." Type="Path" Display="always" Required="true" Mask="false"/>
+  <Config Name="HDHomeRun IP" Target="HDHOMERUN_IP" Default="" Mode="" Description="The IP address of your HDHomeRun device on your local network." Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="Cron Schedule" Target="CRON_SCHEDULE" Default="0 0 * * *" Mode="" Description="The cron schedule for running the script. Default is daily at midnight." Type="Variable" Display="always" Required="false" Mask="false"/>
+</Container>
