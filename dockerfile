@@ -8,9 +8,10 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y cron git && rm -rf /var/lib/apt/lists/*
 
 # Clone the repository from GitHub into the working directory
-RUN git clone https://github.com/IncubusVictim/HDHomeRunEPG-to-XmlTv.git .
+#RUN git clone https://github.com/IncubusVictim/HDHomeRunEPG-to-XmlTv.git .
+RUN git clone https://github.com/melbatoast-net/HDHomeRunEPG-to-XmlTv.git .
 
-RUN pip install --no-cache-dir requests argparse tzlocal gzip
+RUN pip install --no-cache-dir requests argparse tzlocal pytz
 
 # Copy the run script and the entrypoint script into the container's root
 COPY run.sh entrypoint.sh /
@@ -33,3 +34,4 @@ RUN mkdir -p /var/log && touch /var/log/cron.log && mkdir -p /data
 # Set the entrypoint to our custom script
 
 ENTRYPOINT ["/entrypoint.sh"]
+
